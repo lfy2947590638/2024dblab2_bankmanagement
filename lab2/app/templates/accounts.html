@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manage Accounts</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="{{ url_for('static', filename='js/accounts.js') }}" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Manage Accounts</h1>
+        <table id="accountsTable">
+            <thead>
+                <tr>
+                    <th>Account ID</th>
+                    <th>Account Type</th>
+                    <th>Balance</th>
+                    <th>Open Date</th>
+                    <th>Customer ID</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 账户数据将通过JavaScript动态插入 -->
+            </tbody>
+        </table>
+        <button onclick="fetchAccounts()">Refresh</button>
+
+        <h2>Add Account</h2>
+        <form id="addAccountForm" onsubmit="addAccount(event)">
+            <input type="number" id="addAccountID" placeholder="Account ID" required>
+            <input type="text" id="addAccountType" placeholder="Account Type" required>
+            <input type="number" step="100" id="addBalance" placeholder="Balance" required>
+            <input type="date" id="addOpenDate" placeholder="Open Date">
+            <input type="number" id="addCustomerID" placeholder="Customer ID" required>
+            <button type="submit">Add</button>
+        </form>
+
+        <h2>Edit Account</h2>
+        <form id="editAccountForm" onsubmit="updateAccount(event)">
+            <input type="number" id="editAccountID" placeholder="Account ID" required readonly>
+            <input type="text" id="editAccountType" placeholder="Account Type" required>
+            <input type="number" step="100" id="editBalance" placeholder="Balance" required>
+            <input type="date" id="editOpenDate" placeholder="Open Date">
+            <input type="number" id="editCustomerID" placeholder="Customer ID" required readonly>
+            <button type="submit">Update</button>
+        </form>
+        
+        <!-- 新增按钮 -->
+        <button onclick="addBonusToSavings()">Add Bonus to Savings Accounts</button>
+    </div>
+</body>
+</html>

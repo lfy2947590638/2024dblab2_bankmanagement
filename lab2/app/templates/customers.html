@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customers</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="{{ url_for('static', filename='js/customers.js') }}" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Customers</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>CustomerID</th>
+                    <th>CustomerName</th>
+                    <th>Address</th>
+                    <th>ContactInfo</th>
+                    <th>VipStatus</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="customerTableBody">
+                <!-- Customers will be populated here by JavaScript -->
+            </tbody>
+        </table>
+        <button onclick="fetchCustomers()">Refresh Customers</button>
+        
+        <h2>Add Customer</h2>
+        <form id="addCustomerForm" onsubmit="addCustomer(event)">
+            <input type="text" id="addCustomerID" placeholder="Customer ID" required>
+            <input type="text" id="addCustomerName" placeholder="Customer Name" required>
+            <input type="text" id="addCustomerAddress" placeholder="Address" required>
+            <input type="text" id="addCustomerContactInfo" placeholder="Contact Info" required>
+            <select id="addCustomerVipStatus">
+                <option value="">Select VIP Status</option>
+                <option value="VIP">VIP</option>
+                <option value="Regular">Regular</option>
+            </select>
+            <button type="submit">Add</button>
+        </form>
+        
+        <h2>Edit Customer</h2>
+        <form id="editCustomerForm" onsubmit="updateCustomer(event)">
+            <input type="number" id="editCustomerID" placeholder="Customer ID" required readonly>
+            <input type="text" id="editCustomerName" placeholder="Customer Name" required>
+            <input type="text" id="editCustomerAddress" placeholder="Address" required>
+            <input type="text" id="editCustomerContactInfo" placeholder="Contact Info" required>
+            <select id="editCustomerVipStatus">
+                <option value="">Select VIP Status</option>
+                <option value="VIP">VIP</option>
+                <option value="Regular">Regular</option>
+            </select>
+            <button type="submit">Update</button>
+        </form>
+    </div>
+</body>
+</html>

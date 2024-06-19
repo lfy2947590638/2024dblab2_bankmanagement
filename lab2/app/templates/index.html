@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bank Management System</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        .bank-image {
+            max-width: 100%;
+            height: auto;
+            margin-top: 10px;
+            max-height: 100px; /* 控制最大高度 */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Bank Management System</h1>
+        {% if selected_bank %}
+        <h2>Selected Bank: {{ selected_bank['BankName']}}</h2>
+        <p>Total Deposits: {{ total_deposits }}</p>
+        <p>Total Loans: {{ total_loans }}</p>
+        {% if image %}
+        <img src="{{ url_for('static', filename=image) }}" alt="Bank Image" class="bank-image">
+        {% endif %}
+        <ul>
+            <li><a href="/customers">Manage Customers</a></li>
+            <li><a href="/accounts">Manage Accounts</a></li>
+            <li><a href="/loans">Manage Loans</a></li>
+            <li><a href="/departments">Manage Departments</a></li>
+            <li><a href="/employees">Manage Employees</a></li>
+            <li><a href="/emp-cus">Manage Employee-Customer Relations</a></li>
+            <li><a href="/transfer">Transfer Funds</a></li>
+            <li><a href="/upload_bank_image">Upload Bank Image</a></li>
+        </ul>
+        <a href="/select_bank">Return to Select Bank</a>
+        {% else %}
+        <p>Please select a bank to manage.</p>
+        <a href="/select_bank">Select Bank</a>
+        {% endif %}
+    </div>
+</body>
+</html>

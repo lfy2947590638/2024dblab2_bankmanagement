@@ -1,0 +1,47 @@
+/* static/css/styles.css */
+
+body {
+    font-family: Arial, sans-serif; /* 设置字体 */
+    background-image: url('../images/bgp1.jpg');
+    background-size: cover; /* 使背景图像充满整个页面 */
+    /* 1422px 798px; 设置背景图像的大小 */
+    background-position: center; /* 使背景图像居中 */
+    background-repeat: no-repeat; /* 不重复背景图像 */
+}
+
+.container {
+    width: 100%; /* 使容器占据页面的 80% 宽度 */
+    margin: 0 auto; /* 使容器居中 */
+    background-color: rgba(255, 255, 255, 0.8); /* 添加一个半透明的背景色以增强可读性 */
+    padding: 20px;  /* 使容器内部的内容与容器的边缘有一定的间距 */
+    border-radius: 8px; /* 使容器的边角变得圆滑 */
+    z-index: 1; /* 使容器在背景图像之上 */
+}
+
+h1 {
+    text-align: center; /* 使标题居中 */
+    margin-top: 20px;   /* 使标题与容器之间有一定的间距 */
+}
+
+table {
+    width: 80%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+button {
+    margin-top: 20px;   /* 使按钮与表格之间有一定的间距 */
+}

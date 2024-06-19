@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manage Loans</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="{{ url_for('static', filename='js/loans.js') }}" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Manage Loans</h1>
+        <table id="loansTable">
+            <thead>
+                <tr>
+                    <th>Loan ID</th>
+                    <th>Loan Amount</th>
+                    <th>Loan Type</th>
+                    <th>Loan Date</th>
+                    <th>Interest Rate</th>
+                    <th>Customer ID</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 贷款数据将通过JavaScript动态插入 -->
+            </tbody>
+        </table>
+        <button onclick="fetchLoans()">Refresh</button>
+
+        <h2>Add Loan</h2>
+        <form id="addLoanForm" onsubmit="addLoan(event)">
+            <input type="number" id="addLoanID" placeholder="Loan ID" required>
+            <input type="number" step="100" id="addLoanAmount" placeholder="Loan Amount" required>
+            <input type="text" id="addLoanType" placeholder="Loan Type" required>
+            <input type="date" id="addLoanDate" placeholder="Loan Date">
+            <input type="number" step="0.01" id="addInterestRate" placeholder="Interest Rate" required>
+            <input type="number" id="addCustomerID" placeholder="Customer ID" required>
+            <button type="submit">Add</button>
+        </form>
+
+        <h2>Edit Loan</h2>
+        <form id="editLoanForm" onsubmit="updateLoan(event)">
+            <input type="number" id="editLoanID" placeholder="Loan ID" required readonly>
+            <input type="number" step="100" id="editLoanAmount" placeholder="Loan Amount" required>
+            <input type="text" id="editLoanType" placeholder="Loan Type" required>
+            <input type="date" id="editLoanDate" placeholder="Loan Date">
+            <input type="number" step="0.01" id="editInterestRate" placeholder="Interest Rate" required>
+            <input type="number" id="editCustomerID" placeholder="Customer ID" required readonly>
+            <button type="submit">Update</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee-Customer Relations</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="{{ url_for('static', filename='js/emp-cus.js') }}" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Employee-Customer Relations</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>EmployeeID</th>
+                    <th>CustomerID</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="employeeCustomerTableBody">
+                <!-- Employee-Customer relations will be populated here by JavaScript -->
+            </tbody>
+        </table>
+        <button onclick="fetchEmployeeCustomers()">Refresh Relations</button>
+
+        <h2>Add Employee-Customer Relation</h2>
+        <form id="addEmployeeCustomerForm" onsubmit="addEmployeeCustomer(event)">
+            <input type="text" id="addEmployeeCustomerEmployeeID" placeholder="Employee ID" required>
+            <input type="text" id="addEmployeeCustomerCustomerID" placeholder="Customer ID" required>
+            <button type="submit">Add</button>
+        </form>
+
+        <h2>Edit Employee-Customer Relation</h2>
+        <form id="editEmployeeCustomerForm" onsubmit="updateEmployeeCustomer(event)">
+            <input type="hidden" id="editEmployeeCustomerEmployeeID">
+            <input type="hidden" id="editEmployeeCustomerCustomerID">
+            <input type="text" id="editEmployeeCustomerNewEmployeeID" placeholder="New Employee ID" required>
+            <input type="text" id="editEmployeeCustomerNewCustomerID" placeholder="New Customer ID" required>
+            <button type="submit">Update</button>
+        </form>
+    </div>
+</body>
+</html>

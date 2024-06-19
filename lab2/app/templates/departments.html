@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Departments</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="{{ url_for('static', filename='js/departments.js') }}" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Departments</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>DepartmentID</th>
+                    <th>DepartmentName</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="departmentTableBody">
+                <!-- Departments will be populated here by JavaScript -->
+            </tbody>
+        </table>
+        <button onclick="fetchDepartments()">Refresh Departments</button>
+
+        <h2>Add Department</h2>
+        <form id="addDepartmentForm" onsubmit="addDepartment(event)">
+            <input type="text" id="addDepartmentID" placeholder="Department ID" required>
+            <input type="text" id="addDepartmentName" placeholder="Department Name" required>
+            <button type="submit">Add</button>
+        </form>
+
+        <h2>Edit Department</h2>
+        <form id="editDepartmentForm" onsubmit="updateDepartment(event)">
+            <input type="text" id="editDepartmentID" placeholder="Department ID" required>
+            <input type="text" id="editDepartmentName" placeholder="Department Name" required>
+            <button type="submit">Update</button>
+        </form>
+    </div>
+</body>
+</html>

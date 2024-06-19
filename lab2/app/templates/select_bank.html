@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Select Bank</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Select Bank</h1>
+        <form id="selectBankForm" action="/select_bank" method="POST">
+            <label for="bankID">Bank:</label>
+            <select id="bankID" name="bankID">
+                {% for bank in banks %}
+                    <option value="{{ bank.BankID }}">{{ bank.BankName }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Select</button>
+        </form>
+    </div>
+</body>
+</html>

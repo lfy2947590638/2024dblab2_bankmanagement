@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manage Employees</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="{{ url_for('static', filename='js/employees.js') }}" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Manage Employees</h1>
+        <table id="employeesTable">
+            <thead>
+                <tr>
+                    <th>Employee ID</th>
+                    <th>Employee Name</th>
+                    <th>Position</th>
+                    <th>Department ID</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 员工数据将通过JavaScript动态插入 -->
+            </tbody>
+        </table>
+        <button onclick="fetchEmployees()">Refresh</button>
+
+        <h2>Add Employee</h2>
+        <form id="addEmployeeForm" onsubmit="addEmployee(event)">
+            <input type="number" id="addEmployeeID" placeholder="Employee ID" required>
+            <input type="text" id="addEmployeeName" placeholder="Employee Name" required>
+            <select id="addPosition" required>
+                <option value="">Select Position</option>
+                <option value="Manager">Manager</option>
+                <option value="Clerk">Clerk</option>
+                <option value="IT Specialist">IT Specialist</option>
+                <!-- 其他可选项 -->
+            </select>
+            <input type="number" id="addDepartmentID" placeholder="Department ID">
+            <button type="submit">Add</button>
+        </form>
+
+        <h2>Edit Employee</h2>
+        <form id="editEmployeeForm" onsubmit="updateEmployee(event)">
+            <input type="number" id="editEmployeeID" placeholder="Employee ID" required readonly>
+            <input type="text" id="editEmployeeName" placeholder="Employee Name" required>
+            <select id="editPosition" required>
+                <option value="">Select Position</option>
+                <option value="Manager">Manager</option>
+                <option value="Clerk">Clerk</option>
+                <option value="IT Specialist">IT Specialist</option>
+                <!-- 其他可选项 -->
+            </select>
+            <input type="number" id="editDepartmentID" placeholder="Department ID">
+            <button type="submit">Update</button>
+        </form>
+    </div>
+</body>
+</html>
